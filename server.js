@@ -4,6 +4,7 @@ const cors = require('cors')
 const PORT = process.env.PORT || 8000
 
 app.use(cors())
+app.use(express.static(__dirname))
 
 const rappers = {
     'eminem':{
@@ -23,9 +24,9 @@ const rappers = {
     },
 }
 
-app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/index.html')
-}) 
+// app.get('/', (request, response) => {
+//     response.sendFile(__dirname + '/index.html')
+// }) 
 
 app.get('/api/:rapperName', (request, response) => { // the colon let's us know it's a query parameter
     const rappersName = request.params.rapperName.toLowerCase()
