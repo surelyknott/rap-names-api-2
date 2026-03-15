@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express() // wherever we see app, we know we're using express
+const cors = require('cors')
 const PORT = process.env.PORT || 8000
+
+app.use(cors())
 
 const rappers = {
     'eminem':{
