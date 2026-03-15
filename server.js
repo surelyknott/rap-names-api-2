@@ -34,7 +34,7 @@ app.get('/api/:rapperName', (request, response) => { // the colon let's us know 
         response.json(rappers[rappersName])
     }
     else{
-        response.json(rappers['big bob'].birthName)
+        response.json(rappers['big bob'])
     }
 })
 
