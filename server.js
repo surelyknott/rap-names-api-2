@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express() // wherever we see app, we know we're using express
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 
 const rappers = {
     'eminem':{
@@ -24,21 +24,17 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html')
 }) 
 
-app.get('/', (req, res) => {
-  res.send('API is running')
-})
-
 app.get('/api/:rapperName', (request, response) => { // the colon let's us know it's a query parameter
     const rappersName = request.params.rapperName.toLowerCase()
     if(rappers[rappersName]){ // bracket notation still allows us to look at the object and use it's key
         response.json(rappers[rappersName])
     }
     else{
-        response.json(['big bob'])
+        response.json('big bob')
     }
     // response.json(rappers)
 }) 
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
     console.log(`The server is running on port ${PORT}! You better go catch it!`)
 })
