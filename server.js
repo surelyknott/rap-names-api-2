@@ -35,6 +35,6 @@ app.get('/api/:rapperName', (request, response) => { // the colon let's us know 
     // response.json(rappers)
 }) 
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`The server is running on port ${PORT}! You better go catch it!`)
 })
