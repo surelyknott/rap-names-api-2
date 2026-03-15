@@ -7,8 +7,14 @@ async function apiRequest(){
 
         const data = await response.json()
         console.log(data)
-        
-        document.querySelector('h2').innerText = data.birthName
+
+        if(data.birthName === "Robert Hellyuh"){
+            document.querySelector('h3').innerText = data.birthName
+            document.querySelector('h2').innerText = ""
+        } else {
+            document.querySelector('h2').innerText = data.birthName
+            document.querySelector('h3').innerText = ""
+        }
 
     }catch(error){
         console.log(error)
