@@ -33,7 +33,13 @@ app.get('/api/:rapperName', (request, response) => { // the colon let's us know 
         response.json('big bob')
     }
     // response.json(rappers)
-}) 
+})
+
+app.use((req, res) => {
+  res.status(404).json({
+    error: "Endpoint not found"
+  })
+})
 
 app.listen(PORT, () => {
     console.log(`The server is running on port ${PORT}! You better go catch it!`)
