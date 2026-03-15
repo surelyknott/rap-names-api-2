@@ -19,7 +19,7 @@ const rappers = {
     },
     'big bob':{
         'age': 72, 
-        'birthName': 'Robert Hellyuh',
+        'birthName': 'Robert Hellyuh-Got-Got',
         'birthLocation': 'Birmingham, U.K.'
     }
 }
@@ -34,7 +34,7 @@ app.get('/api/:rapperName', (request, response) => { // the colon let's us know 
         response.json(rappers[rappersName])
     }
     else{
-        response.json(['big bob'])
+        response.json(rappers['big bob'.birthName])
     }
     // response.json(rappers)
 })
