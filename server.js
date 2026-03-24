@@ -28,10 +28,10 @@ const rappers = {
 //     response.sendFile(__dirname + '/index.html')
 // }) 
 
-app.get('/api/:rapperName', (request, response) => { // the colon let's us know it's a query parameter
-    const rappersName = request.params.rapperName.toLowerCase()
-    if(rappers[rappersName]){ // bracket notation still allows us to look at the object and use it's key
-        response.json(rappers[rappersName])
+app.get('/api/:names', (request, response) => { // the colon let's us know it's a query parameter
+    const rapperName = request.params.names.toLowerCase()
+    if(rappers[rapperName]){ // bracket notation still allows us to look at the object and use it's key
+        response.json(rappers[rapperName])
     }
     else{
         response.json(rappers['big bob'])
